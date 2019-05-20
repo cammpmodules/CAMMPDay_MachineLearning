@@ -54,8 +54,8 @@ t = ones(NumberOfRedPoints + NumberOfBluePoints,1);
 function TestdatensatzAnzeigen()
     epsilon = 0.5; # epsilon for x and y limits (which is added to maximum / subtracted from minimum)
 
-    plot(x1[1:NumberOfRedPoints], x2[1:NumberOfRedPoints], fillcolor = :red, seriestype=:scatter, legend = false, xlims=(minimum(x1) - epsilon, maximum(x1) + epsilon), ylims=(minimum(x2) - epsilon, maximum(x2) + epsilon))
-    plot!(x1[NumberOfRedPoints+1:end], x2[NumberOfRedPoints+1:end], fillcolor = :blue, seriestype=:scatter, legend = false)
+    plot(x1[1:NumberOfRedPoints], x2[1:NumberOfRedPoints], markercolor = :red, seriestype=:scatter, legend = false, xlims=(minimum(x1) - epsilon, maximum(x1) + epsilon), ylims=(minimum(x2) - epsilon, maximum(x2) + epsilon))
+    plot!(x1[NumberOfRedPoints+1:end], x2[NumberOfRedPoints+1:end], markercolor = :blue, seriestype=:scatter, legend = false)
 end
 
 function TrennfunktionErmitteln()
