@@ -10,12 +10,14 @@ module MachineLearning
     export Abstandtest
     export Abstand
     export AbstandKorrekt
+    export TestdatensatzAnzeigen
 
     # Include all Julia files
     include("./Ampel.jl")
     include("./GrauwertUeberpruefung.jl")
     include("./Abstandtest.jl")
     include("./Abstand.jl")
+    include("./Punkte.jl")
 
     # The following lines are used to enable auto-numbering equations (see https://stackoverflow.com/a/42940005)
     javascript = """
