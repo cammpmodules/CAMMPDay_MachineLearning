@@ -24,9 +24,13 @@ function getRGB(rgb)
     return RGB(rgb[1] / 255, rgb[2] / 255, rgb[3] / 255)
 end
 
-function drawLights(colorTop, colorBottom) 
+function drawLights(colorTop, colorMiddle, colorBottom = :nothing) 
     plot(rectangle(1, 1, 0, 1), fillcolor = colorTop, xlim = 1, xaxis = false, yaxis = false, legend = false, size = (200, 300))
-    plot!(rectangle(1, 1, 0, 0), fillcolor = colorBottom)
+    plot!(rectangle(1, 1, 0, 0), fillcolor = colorMiddle)
+
+    if colorBottom != :nothing
+        plot!(rectangle(1, 1, 0, -1), fillcolor = colorBottom)
+    end
 end
 
 function Ampel(rgbTop, rgbBottom)
@@ -34,6 +38,14 @@ function Ampel(rgbTop, rgbBottom)
     colorBottom = getRGB(rgbBottom)
     
     drawLights(colorTop, colorBottom)
+end
+
+function Ampel(rgbTop, rgbMiddle, rgbBottom)
+    colorTop = getRGB(rgbTop)
+    colorMiddle = getRGB(rgbMiddle)
+    colorBottom = getRGB(rgbBottom)
+    
+    drawLights(colorTop, colorMiddle, colorBottom)
 end
 
 function AmpelSW(rgbTop, rgbBottom, func) 
